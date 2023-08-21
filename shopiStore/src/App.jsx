@@ -1,13 +1,17 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/navbar";
+
 import Home from './pages/Home';
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Cart from "./pages/Cart";
-
-import './App.css'
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import CategoryProducts from "./pages/Search/categoryProducts";
+import './assets/css/App.css';
+import Product from "./pages/ProductDetail/Product";
 
 function App() {
+
 
 
 
@@ -17,8 +21,8 @@ function App() {
     <div className='App'>
 
       {/* La navbar sera composé de plusieurs routes  */}
-      <Navbar />
-
+     
+      <Header/>
       {/* <Routes> : Creation du groupe des routes  */}
       <Routes>
 
@@ -26,6 +30,10 @@ function App() {
         {/* path: c'est le chemin à charger */}
         {/* element={<Home/>} : va charger le composant/element Home, qui est enfant de App. */}
         <Route path="/" element={<Home />} />
+        
+        <Route path="/category/:category" element={<CategoryProducts />} />
+
+        <Route path='/product/:id' element={<Product/>} />
 
         <Route path="/login" element={<Login />} />
 
@@ -34,6 +42,7 @@ function App() {
         <Route path="/Cart" element={<Cart/>} />
 
       </Routes>
+      <Footer/>
 
 
     </div >

@@ -1,0 +1,26 @@
+.note{
+
+    font-size: 35px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 2%;
+margin-top: 3%;
+
+
+    
+}
+
+.chaine li{
+box-shadow: 0 0 10px rgba(0,0,0);
+border: 1px solid black;
+display: flex;
+align-items: center;
+width: 250px;
+height: 350px;
+background-color:whitesmoke;
+}
+
+img{
+    width: 200px;
+}

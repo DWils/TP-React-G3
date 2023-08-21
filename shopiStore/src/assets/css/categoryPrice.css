@@ -1,0 +1,30 @@
+
+
+.category-prices{
+
+   
+   list-style: none;
+   padding: 20%;
+}
+
+
+
+.labchek{
+
+
+   margin: 3px;
+   /* display: flex; */
+   
+}
+
+.com{
+   display: flex;
+   flex-direction: column;
+   
+}
+
+.category-prices li{
+
+width: 80%;
+
+}

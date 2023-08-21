@@ -1,0 +1,47 @@
+.comments-container{
+
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+   
+    padding: 2px;
+    height: 30vh;
+    
+    
+    
+}
+.comments-container ul{
+    display: flex;
+    flex-direction: column;
+   
+   
+    
+}
+
+
+.classe{
+
+
+margin: 2px;
+
+
+
+
+/* margin: 4px; */
+
+background-color: rgb(11, 11, 10);
+}
+
+.star-rating-container {
+   filter: drop-shadow(0px 0px 0px black);
+   transition: filter 0.4s ease-out;
+   cursor: pointer;
+   display: flex;
+   background-color:brown
+   
+
+}
+.star-ratings-container:hover{
+
+    filter: drop-shadow(0px 0px 20px gold);
+}

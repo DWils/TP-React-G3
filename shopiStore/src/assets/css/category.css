@@ -1,0 +1,54 @@
+.titre{
+font-size: 35px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 40px;
+margin-top: 3%;
+-webkit-text-stroke: 1px black;
+    
+
+}
+
+body{
+    background-color: #b4b4b463;
+}
+
+.poster li{
+background-color: #B4B4B4;
+font-weight: 600;
+box-shadow: 0 0 10px rgba(0,0,0);
+border: 1px solid black;
+margin: 1px;
+
+padding: 10px;
+display: flex;
+
+align-items: center;
+width: 180px;
+height: 300px;
+transition: 0.5s;
+
+}
+li{
+    display: flex;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+   
+    text-transform: capitalize;
+  
+  
+    
+    
+}
+
+.poster li:hover{
+
+    transform: scale(1.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    color: red; 
+    -webkit-text-stroke: 1px black;
+    white-space: nowrap; 
+}
