@@ -1,11 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar";
 import Home from './pages/Home';
-import Login from "./pages/Login";
+import Login from "./pages/Login/index2";
 import SignUp from "./pages/SignUp";
 import Cart from "./pages/Cart";
+import Profile from "./pages/Login/Profile";
+import './assets/css/Login.css'
 
-import './App.css'
+// import './App.css'
 
 function App() {
 
@@ -31,9 +33,13 @@ function App() {
 
         <Route path="/SignUp" element={<SignUp/>} />
 
-        <Route path="/Cart" element={<Cart/>} />
+        <Route path ="/login/:profile" element ={<Profile/>}/>
 
-      </Routes>
+        <Route path="/Cart" element ={<Cart/>} />
+
+        <Route path="/Profile" element ={<Profile/>} />
+
+      </Routes>   
 
 
     </div >
