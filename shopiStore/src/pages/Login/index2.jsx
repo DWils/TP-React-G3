@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 
 import React, { useEffect, useState } from 'react';
-=======
-import React, { useState } from 'react';
->>>>>>> 16db8cbe575cc37bcd4ce02d2eff3071b4bfbf7b
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,7 +8,6 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [resetEmail, setResetEmail] = useState('');
   const [resetRequested, setResetRequested] = useState(false);
-<<<<<<< HEAD
   const [users, setUsers] = useState([]);
 
   const redirectToHomePage = (connectedUser) =>{
@@ -37,23 +32,6 @@ const navigate = useNavigate();
 
   const handleClick = (id)=>{
   
-=======
-const navigate = useNavigate();
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post('https://fakestoreapi.com/auth/login', JSON.stringify({
-        username: username,
-        password: password,
-      }));
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleClick = (id)=>{
-  }
->>>>>>> 16db8cbe575cc37bcd4ce02d2eff3071b4bfbf7b
 
   navigate('/login/:profile')}
 
@@ -104,26 +82,15 @@ const navigate = useNavigate();
               value={resetEmail}
               onChange={(e) => setResetEmail(e.target.value)}
             />
-<<<<<<< HEAD
             <button className="reset-button" onClick={redirectToForgetPassword}>
-=======
-            <button className="reset-button" onClick={handleResetPassword}>
->>>>>>> 16db8cbe575cc37bcd4ce02d2eff3071b4bfbf7b
               Reset Password
             </button>
           </div>
         )}
       </div>
-<<<<<<< HEAD
       {console.log(users)}
-=======
->>>>>>> 16db8cbe575cc37bcd4ce02d2eff3071b4bfbf7b
     </div>
   );
 };
 
-<<<<<<< HEAD
 export default Login;
-=======
-export default Login;
->>>>>>> 16db8cbe575cc37bcd4ce02d2eff3071b4bfbf7b
