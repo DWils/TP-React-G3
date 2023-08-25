@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-
+import {useState} from "react";
 import Home from './pages/Home';
-import Login from "./pages/Login";
+import Login from "./pages/Login/index2";
 import SignUp from "./pages/SignUp";
 import Cart from "./pages/Cart";
 import Header from "./components/Header";
@@ -10,9 +10,19 @@ import CategoryProducts from "./pages/Search/categoryProducts";
 import './assets/css/App.css';
 import Product from "./pages/ProductDetail/Product";
 
+
+import Profile from "./pages/Login/Profile";
+import Payment from "./pages/Payment/Payment";
+
 function App() {
 
 
+  const [count, setCount] = useState(0);
+
+  const handleCounter =()=>{
+    // console.log(++count);
+    setCount(count+1)
+  }
 
 
   return (
@@ -22,7 +32,7 @@ function App() {
 
       {/* La navbar sera composé de plusieurs routes  */}
      
-      <Header/>
+      <Header count={count} />
       {/* <Routes> : Creation du groupe des routes  */}
       <Routes>
 
@@ -33,14 +43,18 @@ function App() {
         
         <Route path="/category/:category" element={<CategoryProducts />} />
 
-        <Route path='/product/:id' element={<Product/>} />
-
+        <Route path='/product/:id' element={<Product count={count} setCount={setCount}/>} />
+         
         <Route path="/login" element={<Login />} />
-
+        <Route path ="/profile/:id" element ={<Profile/>}/>
         <Route path="/SignUp" element={<SignUp/>} />
 
         <Route path="/Cart" element={<Cart/>} />
+        <Route path = "/Payment" element={<Payment/>}/>
 
+        <Route path="/forgetpassword" element ={<SignUp/>} />
+       
+     
       </Routes>
       <Footer/>
 

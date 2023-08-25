@@ -8,18 +8,18 @@ import {NavLink} from 'react-router-dom';
 
 
 
-const Header = () => {
+const Header = ({count}) => {
     const [searchValue, setSearchValue] = useState("")
 
     const [categories, setCategories] = useState([]);
 
     const navigate = useNavigate();
-
-    const [selectCategorie, setSelectCategorie] = useState(null)
+    
+    const [selectCategorie, setSelectCategorie] = useState(null);
 
     useEffect(() => {
-        if (searchValue.trim() !== "") {
-            axios.get('https://fakestoreapi.com/products/categories')
+        if (searchValue.trim() !== ""){
+            axios.get('https://fakestoreapi.com/products')
                 .then((response) => {
                     if (response.data) {
                         setCategories(response.data);
@@ -38,26 +38,40 @@ const Header = () => {
         setSearchValue(e.target.value)
 };
 
-const handleCategoryClick = (category) => {
+const handleCategoryClick = (id) => {
+    navigate(`/product/${id}`);
 
-    navigate(`/category/${category}`);
-    setSelectCategorie(category);
+    // navigate(`/category/${category}`);
+    // setSelectCategorie(category);
+    setSearchValue("");
   };
 
   const filteredCategories = categories.filter((category) =>
-  category.toLowerCase().includes(searchValue.toLowerCase())
-);
+  category.title.toLowerCase().includes(searchValue.toLowerCase())
+ 
+); 
     return (
         <div className="header">
 
             <div className="first">
-            <NavLink to="/"><img className='i' src='shopistore_logo1.png' alt="Logo de mon application" width="100px" /></NavLink>  
+            <NavLink to="/"><img className='p-6 md:p-10 lg:p-13 xl:p-12' src='shopistore_logo1.png' alt="Logo de mon application"/></NavLink>  
                 
                 <div className="search">
                     <input type="text" placeholder='serach' value={searchValue} onChange={handleChange} />
                     <FaSearch size={25} className='loup' />
                    
-                    {searchValue.trim() !== '' && (
+                    {searchValue !== '' && (
+            <ul className="suggestions absolute top-12 bg-gray-100  mt-0 flex h-auto justify-items-start justify-end text-xl">
+            {filteredCategories.map((product, index) => (
+                
+                <li key={index} onClick={() => handleCategoryClick(product.id)} className='flex justify-start cursor-pointer'>
+                    {product.title}
+                </li>
+            ))}
+        </ul>
+        
+        )}
+                    {/* {searchValue.trim() !== '' && (
                         <ul className="suggestions">
                         {filteredCategories
                         .map((category) => (
@@ -67,7 +81,7 @@ const handleCategoryClick = (category) => {
                         ))}
 
                       </ul>
-                    )}
+                    )} */}
 
                 </div>
                
@@ -78,7 +92,7 @@ const handleCategoryClick = (category) => {
                 
             </div>
             <div className="third">
-               <NavLink to="/Cart" ><FaShoppingCart size={35} className='panier' /></NavLink> 
+            <NavLink to="/Cart" className="relative"><FaShoppingCart size={35} className='panier' /><div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">{count}</div></NavLink>
             </div>
         </div>
     )

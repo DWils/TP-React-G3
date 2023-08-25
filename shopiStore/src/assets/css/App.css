@@ -6,3 +6,8 @@
 @import './categoryProducts.css';
 @import './categoryComments.css';
 @import './categoryPrice.css';
+@import "./Login.css";
+@import "./profile.css";
+@import './cart.css';
+@import './Payment.css';
+@import "./signUp.css"
