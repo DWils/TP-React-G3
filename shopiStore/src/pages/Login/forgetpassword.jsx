@@ -26,7 +26,10 @@ function ForgetPasswordForm() {
 
   return (
     <div>
+<<<<<<< HEAD
       
+=======
+>>>>>>> 16db8cbe575cc37bcd4ce02d2eff3071b4bfbf7b
       <h2>Mot de passe oublié</h2>
       <form onSubmit={handleSubmit}>
         <label>
@@ -45,4 +48,8 @@ function ForgetPasswordForm() {
   );
 }
 
+<<<<<<< HEAD
 export default ForgetPasswordForm;
+=======
+export default ForgetPasswordForm;
+>>>>>>> 16db8cbe575cc37bcd4ce02d2eff3071b4bfbf7b
