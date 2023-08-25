@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const CategoryPrice = ({ selectCategorie }) => {
+const CategoryPrice = ({ selectCategorie,onPriceFilter, selectedPriceRange}) => {
   const [categoryProducts, setCategoryProducts] = useState([]);
+
+
+  const [filteredProducts, setfilteredProducts] = useState([selectCategorie])
+
   const [priceCategories, setPriceCategories] = useState([
     { label: 'Jusqu\'à 20 euros', min: 0, max: 20 },
     { label: '20 à 50 euros', min: 20, max: 50 },
@@ -12,6 +16,7 @@ const CategoryPrice = ({ selectCategorie }) => {
     { label: '500 euros et plus', min: 500, max: Infinity }
   ]);
 
+  const [selectedCategory, setSelectedCategory] = useState(null);
   useEffect(() => {
     if (selectCategorie) {
       axios.get(`https://fakestoreapi.com/products/category/${selectCategorie}`)
@@ -22,22 +27,45 @@ const CategoryPrice = ({ selectCategorie }) => {
     }
   }, [selectCategorie]);
 
-  const filterProductsByPrice = (min, max) => {
-    return categoryProducts.filter(product => product.price >= min && product.price <= max);
-  };
+  // const handleCategoryClick = (category) => {
+  //   setSelectedCategory(category);
+  //   onPriceFilter(category.min, category.max);
+  // };
 
+
+  // const handleClick = (selectedCategory) => {
+  //   console.log("verification", selectedCategory);
+  //   const filtered = filterProductsByPrice(selectedCategory.min, selectedCategory.max);
+  //   console.log("Filtered products:", filtered);
+  //   setfilteredProducts(filtered);
+  // };
+  
+  // const [checked, setChecked] = useState(false); 
+  // handleChange = (e) => {
+  //   setChecked(e.target.value);
+  // }
   return (
     <div>
+    
       <ul className="category-prices com" >
-        {priceCategories.map((category, index) => (
+      <h2 className='pr'>Prix</h2>
+        {priceCategories
+        .map((category, index) => (
           <li key={index}>
+            
             <label className='labchek'>
-              <input type="checkbox" name="" id="" />
+              <input  type="checkbox" 
+              // onChange={handleChange}
+             
+              // checked={selectedPriceRange && selectedPriceRange.min === category.min && selectedPriceRange.max === category.max}
+              onClick={() => onPriceFilter(category.min, category.max)}
+               name="" id="" className='ch'/>
             {category.label}
             </label>
           </li>
         ))}
       </ul>
+     
     </div>
   );
 };

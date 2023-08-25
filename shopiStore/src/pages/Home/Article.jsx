@@ -13,6 +13,7 @@ axios.get('https://fakestoreapi.com/products?sort=desc')
 
 
 .then((response)=>setArticles(response.data))
+// console.log(setArticles)
 
 .catch((error) => console.log(error));
 
